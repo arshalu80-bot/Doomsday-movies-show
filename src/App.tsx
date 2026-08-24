@@ -15,10 +15,24 @@ export default function App() {
   const [activeTab, setActiveTab] = useState<'mcu' | 'watched' | 'xmen' | 'series'>('mcu');
 
   useEffect(() => {
-    const saved = localStorage.getItem('marvel_tracker_state_v2');
-    if (saved) {
-      setItems(JSON.parse(saved));
-    } else {
+    try {
+      const saved = localStorage.getItem('marvel_tracker_state_v2');
+      if (saved) {
+        setItems(JSON.parse(saved));
+      } else {
+        const initialItems: TrackerItem[] = [];
+        rawMCU.forEach((title, index) => {
+          initialItems.push({ id: `mcu_${index}`, title, category: 'mcu', originalIndex: index + 1, watched: false });
+        });
+        rawXMen.forEach((title, index) => {
+          initialItems.push({ id: `xmen_${index}`, title, category: 'xmen', originalIndex: index + 1, watched: false });
+        });
+        rawSeries.forEach((title, index) => {
+          initialItems.push({ id: `series_${index}`, title, category: 'series', originalIndex: index + 1, watched: false });
+        });
+        setItems(initialItems);
+      }
+    } catch {
       const initialItems: TrackerItem[] = [];
       rawMCU.forEach((title, index) => {
         initialItems.push({ id: `mcu_${index}`, title, category: 'mcu', originalIndex: index + 1, watched: false });
