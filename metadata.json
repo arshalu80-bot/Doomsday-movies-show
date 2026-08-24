@@ -1,0 +1,6 @@
+{
+  "name": "Avengers Doomsday Tracker",
+  "description": "Track your progress watching MCU movies leading up to Avengers: Doomsday.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

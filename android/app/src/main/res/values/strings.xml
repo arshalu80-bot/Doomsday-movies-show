@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Avengers Doomsday Tracker</string>
+    <string name="title_activity_main">Avengers Doomsday Tracker</string>
+    <string name="package_name">com.avengers.doomsdaytracker</string>
+    <string name="custom_url_scheme">com.avengers.doomsdaytracker</string>
+</resources>
